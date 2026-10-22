@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "node src/index.js",
-    "dev": "node --watch src/index.js"
+    "dev": "node --watch src/index.js",
+    "test": "node tests/test_solana.js"
   },
   "dependencies": {
     "@solana/web3.js": "^1.98.0",

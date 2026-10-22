@@ -9,10 +9,15 @@ if (!CONFIG.TELEGRAM_BOT_TOKEN) {
 
 const bot = createBot(CONFIG.TELEGRAM_BOT_TOKEN);
 
+bot.catch((err) => {
+  console.error('❌ Telegram Bot Error caught:', err.error || err);
+});
+
 console.log(`🤖 Starting Solana Route Bot...`);
 console.log(`📡 Network: ${CONFIG.SOLANA_NETWORK} (${CONFIG.SOLANA_RPC_URL})`);
 
 bot.start({
+  drop_pending_updates: true,
   onStart: (botInfo) => {
     console.log(`✅ Bot successfully connected as @${botInfo.username}`);
   }
